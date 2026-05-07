@@ -228,6 +228,78 @@ section {
   margin-left: auto;
 }
 
+/* ====== BENEFITS ====== */
+.benefits-wrap {
+  border: 2.5px solid var(--ink);
+  border-radius: 22px;
+  background: var(--paper);
+  padding: 22px;
+  box-shadow: var(--shadow-lg);
+}
+.benefits-formula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  padding: 16px;
+  border: 2px dashed var(--ink);
+  border-radius: 14px;
+  background: var(--bg);
+}
+.formula-pill {
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  padding: 10px 16px;
+  background: var(--paper);
+  font-weight: 700;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 4px;
+}
+.formula-pill .top { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+.formula-pill .val { font-family: var(--mono); font-size: 14px; }
+.formula-pill.input { background: #FCE7F3; }
+.formula-pill.output { background: #DCFCE7; }
+.formula-pill.engine { background: var(--ink); color: var(--paper); }
+.formula-arrow { font-size: 26px; font-weight: 800; }
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.benefit-card {
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  padding: 16px;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s;
+}
+.benefit-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.benefit-card .b-ico {
+  font-size: 28px;
+  display: inline-grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: var(--paper);
+  margin-bottom: 10px;
+}
+.benefit-card h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.benefit-card p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
 /* ====== ALIGNMENT (3 versions) ====== */
 .align-wrap {
   display: grid;

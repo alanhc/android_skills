@@ -120,6 +120,43 @@ function AlignmentSection({ lang }) {
   );
 }
 
+function BenefitsSection({ lang }) {
+  const t = useT(lang);
+  const f = D.benefits.formula;
+  return (
+    <section data-screen-label="02 Benefits">
+      <SectionHead num="02" title={t(D.benefits.head)} sub={t(D.benefits.sub)} />
+      <div className="benefits-wrap">
+        <div className="benefits-formula">
+          <div className="formula-pill input">
+            <span className="top">👤 {t(f.lhs)}</span>
+            <span className="val">{f.input}</span>
+          </div>
+          <span className="formula-arrow">→</span>
+          <div className="formula-pill engine">
+            <span className="top" style={{ color: "#fbbf24" }}>🤖 Agent Skill</span>
+            <span className="val">aosp-build</span>
+          </div>
+          <span className="formula-arrow">→</span>
+          <div className="formula-pill output">
+            <span className="top">📦 {t(f.rhs)}</span>
+            <span className="val">{t(f.output)}</span>
+          </div>
+        </div>
+        <div className="benefit-grid">
+          {D.benefits.cards.map((c, i) => (
+            <div className="benefit-card" key={i}>
+              <div className="b-ico">{c.ico}</div>
+              <h4>{t(c.title)}</h4>
+              <p>{t(c.body)}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function PipelineSection({ lang }) {
   const t = useT(lang);
   const stages = D.pipeline;
@@ -195,9 +232,9 @@ function PipelineSection({ lang }) {
   const isPaused = states[active] === "paused";
 
   return (
-    <section data-screen-label="02 Pipeline">
+    <section data-screen-label="03 Pipeline">
       <SectionHead
-        num="02"
+        num="03"
         title={lang === "zh" ? "互動式 Pipeline 模擬" : "Interactive pipeline simulation"}
         sub={lang === "zh" ? "點 ▶ 模擬整條 pipeline。AI 自動推進，遇到 human-only 步驟會暫停等你按確認。" : "Hit ▶ to simulate. The AI advances on its own; on a human-only step it pauses for your confirmation."}
       />
@@ -263,8 +300,8 @@ function HumanAISection({ lang }) {
   const ai = D.human_ai.ai;
   const human = D.human_ai.human;
   return (
-    <section data-screen-label="03 Boundary">
-      <SectionHead num="03" title={t(D.human_ai.head)} sub={t(D.human_ai.sub)} />
+    <section data-screen-label="04 Boundary">
+      <SectionHead num="04" title={t(D.human_ai.head)} sub={t(D.human_ai.sub)} />
       <div className="split">
         <div className="split-side ai">
           <span className="role-tag">🤖 {t(ai.role)}</span>
@@ -318,8 +355,8 @@ function Timeline({ rows, totalSegs = 100 }) {
 function ShiftSection({ lang }) {
   const t = useT(lang);
   return (
-    <section data-screen-label="04 Shift">
-      <SectionHead num="04" title={t(D.shift.head)} sub={t(D.shift.sub)} />
+    <section data-screen-label="05 Shift">
+      <SectionHead num="05" title={t(D.shift.head)} sub={t(D.shift.sub)} />
       <div className="shift">
         <div className="shift-card before">
           <span className="role">{t(D.shift.before.role)}</span>
@@ -352,8 +389,8 @@ function SlotsSection({ lang }) {
   };
 
   return (
-    <section data-screen-label="05 Slots">
-      <SectionHead num="05" title={t(D.slots.head)} sub={t(D.slots.sub)} />
+    <section data-screen-label="06 Slots">
+      <SectionHead num="06" title={t(D.slots.head)} sub={t(D.slots.sub)} />
       <div className="slots-wrap">
         <div className="slots-card">
           <div className="phone">
@@ -411,8 +448,8 @@ function SlotsSection({ lang }) {
 function ErrorsSection({ lang }) {
   const t = useT(lang);
   return (
-    <section data-screen-label="06 Errors">
-      <SectionHead num="06" title={t(D.errors.head)} sub={lang === "zh" ? "點卡片看修法。最右側貼出實際指令或檔案路徑。" : "Click a card to inspect the fix — actual commands and file paths inside."} />
+    <section data-screen-label="07 Errors">
+      <SectionHead num="07" title={t(D.errors.head)} sub={lang === "zh" ? "點卡片看修法。最右側貼出實際指令或檔案路徑。" : "Click a card to inspect the fix — actual commands and file paths inside."} />
       <div className="err-grid">
         {D.errors.items.map((e, i) => (
           <div className="err-card" key={i}>
@@ -455,6 +492,7 @@ function App() {
       <TopBar lang={lang} setLang={setLang} />
       <Hero lang={lang} />
       <AlignmentSection lang={lang} />
+      <BenefitsSection lang={lang} />
       <PipelineSection lang={lang} />
       <HumanAISection lang={lang} />
       <ShiftSection lang={lang} />

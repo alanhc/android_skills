@@ -375,12 +375,77 @@ printf '\\nI ACCEPT\\n' | bash extract-*.sh
     ]
   },
 
+  benefits: {
+    head: { zh: "為什麼要用 Agent Skills造燒錄？", en: "Why wrap the flash workflow as an Agent Skill?" },
+    sub: {
+      zh: "這整條 pipeline 是「長、吃記憶、但几乎不需要人思考」的典型代表。包裝成 skill 後，人只在「例外」介入。",
+      en: "This pipeline is the textbook case of “long, memory-heavy, but barely needs human thought.” Wrapped as a skill, the engineer only intervenes on exceptions."
+    },
+    cards: [
+      {
+        ico: "🧠",
+        title: { zh: "免背「咒語」", en: "No more memorized incantations" },
+        body: {
+          zh: "repo init flags、lunch 三段式、fastboot 參數——不用背。Skill 內部已經封裝「為什麼這樣寫」的知識。",
+          en: "repo init flags, three-segment lunch, fastboot args — stop memorizing them. The skill encapsulates the “why this exact form” knowledge."
+        }
+      },
+      {
+        ico: "⏱️",
+        title: { zh: "可以同時推進多個 project", en: "Hold state of multiple projects" },
+        body: {
+          zh: "以前一次一個 build，等待期間注意力碎片化。現在三條 pipeline 並行跑，人只處理「例外」。",
+          en: "Before: one build at a time, fragmented attention. After: three pipelines in parallel, human only handles exceptions."
+        }
+      },
+      {
+        ico: "🔁",
+        title: { zh: "可預期錯誤自動復健", en: "Predictable failures self-heal" },
+        body: {
+          zh: "repo sync 撞 503？自動降低並行數重試。網路中斷？斷點續傳。不用人眼盯完 30 分鐘。",
+          en: "repo sync 503? Auto-throttle and retry. Network drop? Resume. No human watching the terminal for 30 minutes."
+        }
+      },
+      {
+        ico: "✅",
+        title: { zh: "連鎖驗證不遗漏", en: "Verification chain never skipped" },
+        body: {
+          zh: "SHA-256、device-vendor.mk 是否存在、lunch target 是否成功——人會依、AI 不會。避免煤炸式 bootloop。",
+          en: "SHA-256, device-vendor.mk presence, lunch target sanity — humans skip these, AI doesn’t. Catches bootloops before they happen."
+        }
+      },
+      {
+        ico: "📝",
+        title: { zh: "每一步有 audit trail", en: "Every step is auditable" },
+        body: {
+          zh: "每個階段的狀態、指令、log 都寫下來。出問題能追溯「是哪一步出問題」，而不是「重跳一次看看」。",
+          en: "Every stage logs its state, commands, output. Failures trace to the exact step — not “run it again and see”."
+        }
+      },
+      {
+        ico: "🚫",
+        title: { zh: "不可逆操作一律暫停", en: "Irreversible ops always pause" },
+        body: {
+          zh: "bootloader unlock、-w 清 userdata——AI 永遠不自動跑，等人確認。設計上規澆不會手滑。",
+          en: "bootloader unlock, -w wiping userdata — AI never auto-runs these. Pause-and-confirm by design, fat-finger-proof."
+        }
+      }
+    ],
+    formula: {
+      lhs: { zh: "人的輸入", en: "Human input" },
+      rhs: { zh: "AI 推進的 pipeline", en: "AI-driven pipeline" },
+      input: "BP4A.251205.006",
+      output: { zh: "一列 ready-to-flash images", en: "a set of ready-to-flash images" }
+    }
+  },
+
   sections: {
     align: { zh: "01 三版本對齊", en: "01 The three-way alignment" },
-    pipeline: { zh: "02 互動式 Pipeline", en: "02 Interactive pipeline" },
-    boundary: { zh: "03 Human-in-the-Loop", en: "03 Human-in-the-Loop" },
-    shift: { zh: "04 Executor → Supervisor", en: "04 Executor → Supervisor" },
-    slots: { zh: "05 A/B Slot 機制", en: "05 A/B slot mechanism" },
-    errors: { zh: "06 錯誤與救磚", en: "06 Errors & recovery" }
+    benefits: { zh: "02 為什麼用 Agent Skills", en: "02 Why Agent Skills" },
+    pipeline: { zh: "03 互動式 Pipeline", en: "03 Interactive pipeline" },
+    boundary: { zh: "04 Human-in-the-Loop", en: "04 Human-in-the-Loop" },
+    shift: { zh: "05 Executor → Supervisor", en: "05 Executor → Supervisor" },
+    slots: { zh: "06 A/B Slot 機制", en: "06 A/B slot mechanism" },
+    errors: { zh: "07 錯誤與救磚", en: "07 Errors & recovery" }
   }
 };
